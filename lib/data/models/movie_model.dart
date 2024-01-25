@@ -1,3 +1,5 @@
+import '../../domain/entities/Movie.dart';
+
 class MovieModel {
   final int id;
   final String title;
@@ -21,12 +23,21 @@ class MovieModel {
   }
 
 // convert MovieModel to JSON
-Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson() {
     return {
       'id': id,
       'title': title,
       'overview': overview,
       'poster_path': posterPath,
     };
+  }
+
+  // convert MovieModel to Movie
+  Movie toEntity() {
+    return Movie(
+        id: id,
+        title: title,
+        overview: overview,
+        posterPath: posterPath);
   }
 }
